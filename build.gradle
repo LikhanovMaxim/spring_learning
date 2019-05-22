@@ -14,6 +14,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 compileJava.options.encoding = 'UTF-8'
 
+//TODO move versions to variables
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
@@ -21,7 +22,10 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version: '1.1.7.RELEASE'
     compile 'org.freemarker:freemarker:2.3.23'
     
-    testCompile("junit:junit")
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.0.0'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
+    testCompile group: 'org.springframework', name: 'spring-test', version: '5.1.7.RELEASE'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.5.RELEASE'
 }
 
 
