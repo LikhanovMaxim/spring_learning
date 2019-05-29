@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration>
 <!--TODO convert to yaml-->
+<Configuration>
+    <Properties>
+        <!--        TODO Must change properties: project-name, package -->
+        <Property name="project-name">spring-learning</Property>
+        <Property name="package">com.example</Property>
+
+        <Property name="log-pattern">[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</Property>
+        <Property name="folder-log">./logs</Property>
+    </Properties>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout
-                pattern="%style{%d{ISO8601}}{black} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow}: %msg%n%throwable" />
+            <PatternLayout pattern="${log-pattern}"/>
         </Console>
-
         <RollingFile name="RollingFile"
-            fileName="./logs/spring-boot-logger-log4j2.log"
-            filePattern="./logs/$${date:yyyy-MM}/spring-boot-logger-log4j2-%d{-dd-MMMM-yyyy}-%i.log.gz">
-            <PatternLayout>
-                <pattern>%d %p %C{1.} [%t] %m%n</pattern>
-            </PatternLayout>
+                     fileName="${folder-log}/${project-name}.log"
+                     filePattern="${folder-log}/$${date:yyyy-MM}/%d{yyyy-MM-dd}-${project-name}-%i.log.gz">
+            <PatternLayout pattern="${log-pattern}"/>
             <Policies>
-                <!-- rollover on startup, daily and when the file reaches 
-                    10 MegaBytes -->
-                <OnStartupTriggeringPolicy />
-                <SizeBasedTriggeringPolicy
-                    size="10 MB" />
-                <TimeBasedTriggeringPolicy />
+                <!-- rollover on startup, daily and when the file reaches 10 MegaBytes -->
+                <OnStartupTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+                <TimeBasedTriggeringPolicy/>
             </Policies>
         </RollingFile>
     </Appenders>
@@ -27,12 +29,12 @@
     <Loggers>
         <!-- LOG everything at INFO level -->
         <Root level="info">
-            <AppenderRef ref="Console" />
-            <AppenderRef ref="RollingFile" />
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
         </Root>
 
         <!-- LOG "com.baeldung*" at TRACE level -->
-        <Logger name="com.baeldung" level="trace"/>
+        <Logger name="${package}" level="trace"/>
     </Loggers>
 
 </Configuration>
