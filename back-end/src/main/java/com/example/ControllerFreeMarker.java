@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ControllerFreeMarker {
 
     /**
-     * User go to http://localhost:8090/hello?name=User
+     * User go to http://localhost:8092/hello?name=User
      * <li>Front Controller get this request and sent them to ControllerFreeMarker</li>
      * <li>ControllerFreeMarker create model by parameters(name=User)</li>
      * <li>Front Controller get model and send it to View Template</li>

@@ -13,15 +13,19 @@ apply plugin: "war"
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 compileJava.options.encoding = 'UTF-8'
-
+configurations {
+    all*.exclude module : 'spring-boot-starter-logging'
+}
 //TODO move versions to variables
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
     // for freemarker
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version: '1.1.7.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2', version: '2.1.2.RELEASE'
+
     compile 'org.freemarker:freemarker:2.3.23'
-    
+
     compileOnly 'org.projectlombok:lombok:1.18.8'
     annotationProcessor 'org.projectlombok:lombok:1.18.8'
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.0.0'
