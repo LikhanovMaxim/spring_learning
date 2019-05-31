@@ -1,7 +1,9 @@
+//which repositories we use:
 repositories {
     mavenCentral()
 }
 
+//Plugins. TODO What is it?
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
@@ -9,10 +11,12 @@ apply plugin: 'io.spring.dependency-management'
 //for starter-tomcat
 apply plugin: "war"
 
-
+//TODO
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 compileJava.options.encoding = 'UTF-8'
+
+//It is for log4j2
 configurations {
     all*.exclude module : 'spring-boot-starter-logging'
 }
@@ -34,7 +38,7 @@ dependencies {
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.5.RELEASE'
 }
 
-
+//TODO
 buildscript {
     repositories {
         mavenCentral()
@@ -44,11 +48,13 @@ buildscript {
     }
 }
 
+//TODO
 bootJar {
     baseName = 'gs-spring-boot'
     version = '0.1.0'
 }
 
+//TODO
 //for starter-tomcat
 war {
     enabled = true
