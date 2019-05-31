@@ -1,9 +1,10 @@
-//which repositories we use:
+//from which repositories we download dependencies :
 repositories {
     mavenCentral()
 }
 
-//Plugins. TODO What is it?
+//Plugins. It is set of tasks
+
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
@@ -11,9 +12,11 @@ apply plugin: 'io.spring.dependency-management'
 //for starter-tomcat
 apply plugin: "war"
 
-//TODO
+//Java version compatibility to use when compiling Java source.
 sourceCompatibility = 1.8
-targetCompatibility = 1.8
+// Java version to generate classes for. Default value: sourceCompatibility
+//targetCompatibility = 1.8
+//TODO
 compileJava.options.encoding = 'UTF-8'
 
 //It is for log4j2
