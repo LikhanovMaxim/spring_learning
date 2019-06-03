@@ -43,17 +43,20 @@ def LOMBOK_VERSION = '1.18.8'
 def JUNIT_VERSION = '5.0.0'
 def MOCKITO_VERSION = '2.1.0'
 def LOG4J2_VERSION = '2.1.2.RELEASE'
+def OKHTTP3_VERSION = '3.14.2'
 //What we use in our project:
 dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: SPRING_BOOT_VERSION
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version: FREE_MARKER_STARTER_VERSION
     compile group: 'org.freemarker', name: 'freemarker', version: FREE_MARKER_VERSION
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2', version: LOG4J2_VERSION
+
 //    TODO providedCompile vs compile vs compileOnly 
     compileOnly group: 'org.projectlombok', name: 'lombok', version: LOMBOK_VERSION
 //    TODO annotationProcessor
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: LOMBOK_VERSION
 
+    compile group: 'com.squareup.okhttp3', name: 'okhttp', version: OKHTTP3_VERSION
 //    testCompile for test module
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: JUNIT_VERSION
     testCompile group: 'org.mockito', name: 'mockito-core', version: MOCKITO_VERSION
