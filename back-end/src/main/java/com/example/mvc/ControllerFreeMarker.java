@@ -1,13 +1,18 @@
 package com.example.mvc;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+
 
 @Controller
 public class ControllerFreeMarker {
+    private final static Logger logger = LoggerFactory.getLogger(ControllerFreeMarker.class);
 
     /**
      * User go to http://localhost:8092/hello?name=User
@@ -27,5 +32,20 @@ public class ControllerFreeMarker {
                         @RequestParam(value = "name", required = false, defaultValue = "World") String name) {
         model.addAttribute("name", name);
         return "hello";
+    }
+
+    /**
+     * ({"/**"}) --- it means that we handle any other URI, which we didn't handle
+     * Examples: /privet ; /wow ; /etc
+     * @param model in uri we put URI :)
+     * @param request from here we get URI
+     * @return name of template
+     */
+    @GetMapping({"/**"})
+    public String notFound(ModelMap model, HttpServletRequest request) {
+        String requestURI = request.getRequestURI();
+        logger.warn("doesn't exist handler for uri:" + requestURI);
+        model.addAttribute("uri", requestURI);
+        return "pageNotFound";
     }
 }
