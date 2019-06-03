@@ -1,5 +1,6 @@
-package com.example;
+package com.example.mvc;
 
+import com.example.mvc.ControllerFreeMarker;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

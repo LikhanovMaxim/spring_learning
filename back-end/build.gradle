@@ -27,6 +27,9 @@ sourceCompatibility = 1.8
 //TODO
 compileJava.options.encoding = 'UTF-8'
 
+springBoot {
+    mainClassName = 'com.example.Application'
+}
 //It is for log4j2
 configurations {
     all*.exclude module: 'spring-boot-starter-logging'
