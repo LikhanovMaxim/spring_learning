@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
-public class ControllerFreeMarker {
+class ControllerFreeMarker {
     private final static Logger logger = LoggerFactory.getLogger(ControllerFreeMarker.class);
 
     /**
@@ -28,24 +28,25 @@ public class ControllerFreeMarker {
      * @return name of template
      */
     @GetMapping({"/hello"})
-    public String hello(ModelMap model,
-                        @RequestParam(value = "name", required = false, defaultValue = "World") String name) {
+    String hello(ModelMap model,
+                 @RequestParam(value = "name", required = false, defaultValue = "World") String name) {
         model.addAttribute("name", name);
         return "hello";
     }
 
-    /**
-     * ({"/**"}) --- it means that we handle any other URI, which we didn't handle
-     * Examples: /privet ; /wow ; /etc
-     * @param model in uri we put URI :)
-     * @param request from here we get URI
-     * @return name of template
-     */
-    @GetMapping({"/**"})
-    public String notFound(ModelMap model, HttpServletRequest request) {
-        String requestURI = request.getRequestURI();
-        logger.warn("doesn't exist handler for uri:" + requestURI);
-        model.addAttribute("uri", requestURI);
-        return "pageNotFound";
-    }
+//    TODO It does not work: js & css are not included
+//    /**
+//     * ({"/**"}) --- it means that we handle any other URI, which we didn't handle
+//     * Examples: /privet ; /wow ; /etc
+//     * @param model in uri we put URI :)
+//     * @param request from here we get URI
+//     * @return name of template
+//     */
+//    @GetMapping({"/**"})
+//    public String notFound(ModelMap model, HttpServletRequest request) {
+//        String requestURI = request.getRequestURI();
+//        logger.warn("doesn't exist handler for uri:" + requestURI);
+//        model.addAttribute("uri", requestURI);
+//        return "pageNotFound";
+//    }
 }
