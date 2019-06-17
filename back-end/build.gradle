@@ -3,7 +3,7 @@ repositories {
     mavenCentral()
 }
 
-//TODO
+//TODO add description
 buildscript {
     repositories {
         mavenCentral()
@@ -34,7 +34,7 @@ apply plugin: 'com.palantir.docker'
 sourceCompatibility = 1.8
 // Java version to generate classes for. Default value: sourceCompatibility
 //targetCompatibility = 1.8
-//TODO
+//TODO add description
 compileJava.options.encoding = 'UTF-8'
 
 springBoot {
