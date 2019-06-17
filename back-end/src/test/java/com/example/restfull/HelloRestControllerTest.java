@@ -28,6 +28,7 @@ public class HelloRestControllerTest {
         assertEquals(200, response.getStatusCodeValue());
         assertEquals("Greetings from Spring Boot! Rest query", response.getBody());
     }
+
     @Test
     public void checkLogging() {
         HelloRestController log4J2YamlConf = new HelloRestController();
