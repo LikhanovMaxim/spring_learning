@@ -1,0 +1,24 @@
+server:
+  port: 8092
+# Freemarker has default values
+# classpath =  src/main/resources
+#  https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-spring-mvc-template-engines
+spring:
+  freemarker:
+# TODO: move to another folder:
+#    template-loader-path: file:./../front-end/templates
+    suffix: .ftl
+#For docker TODO check
+  application:
+    name: testLatticeApp
+
+ribbon:
+  ServerListRefreshInterval: 1000
+
+endpoints:
+  health:
+    sensitive: false
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
