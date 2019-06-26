@@ -1,4 +1,4 @@
-package com.example.cache;
+package com.example.cache.spring.model;
 
 import com.example.restclient.RestClient;
 import org.slf4j.Logger;

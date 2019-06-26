@@ -1,4 +1,4 @@
-package com.example.cache;
+package com.example.cache.spring.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

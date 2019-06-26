@@ -84,7 +84,10 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version: FREE_MARKER_STARTER_VERSION
     compile group: 'org.freemarker', name: 'freemarker', version: FREE_MARKER_VERSION
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2', version: LOG4J2_VERSION
-
+//TODO is it needed?
+    compile("org.springframework.boot:spring-boot-starter-cache")
+    compile 'javax.cache:cache-api:1.1.0'
+    compile 'org.ehcache:ehcache:3.6.2'
 //    TODO providedCompile vs compile vs compileOnly 
     compileOnly group: 'org.projectlombok', name: 'lombok', version: LOMBOK_VERSION
 //    TODO annotationProcessor
@@ -97,4 +100,8 @@ dependencies {
     testCompile group: 'org.springframework', name: 'spring-test', version: SPRING_VERSION
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: SPRING_BOOT_VERSION
 }
-    
+
+
+//bootRun {
+//    systemProperty "spring.profiles.active", "simple-cache"
+//}
