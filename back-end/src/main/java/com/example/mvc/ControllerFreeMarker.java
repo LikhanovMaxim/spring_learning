@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 class ControllerFreeMarker {
-    private final static Logger logger = LoggerFactory.getLogger(ControllerFreeMarker.class);
+    private static final Logger logger = LoggerFactory.getLogger(ControllerFreeMarker.class);
 
     /**
      * User go to http://localhost:8092/hello?name=User
@@ -28,23 +28,9 @@ class ControllerFreeMarker {
     @GetMapping({"/hello"})
     String hello(ModelMap model,
                  @RequestParam(value = "name", required = false, defaultValue = "World") String name) {
+        logger.info("we use MVC");
         model.addAttribute("name", name);
         return "hello";
     }
 
-//    TODO It does not work: js & css are not included
-//    /**
-//     * ({"/**"}) --- it means that we handle any other URI, which we didn't handle
-//     * Examples: /privet ; /wow ; /etc
-//     * @param model in uri we put URI :)
-//     * @param request from here we get URI
-//     * @return name of template
-//     */
-//    @GetMapping({"/**"})
-//    public String notFound(ModelMap model, HttpServletRequest request) {
-//        String requestURI = request.getRequestURI();
-//        logger.warn("doesn't exist handler for uri:" + requestURI);
-//        model.addAttribute("uri", requestURI);
-//        return "pageNotFound";
-//    }
 }
