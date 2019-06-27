@@ -1,4 +1,4 @@
-package com.example.cache.ehcache;
+package com.example.ehcache;
 
 import org.ehcache.event.CacheEvent;
 import org.ehcache.event.CacheEventListener;
