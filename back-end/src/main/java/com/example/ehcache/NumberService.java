@@ -1,4 +1,4 @@
-package com.example.cache.ehcache;
+package com.example.ehcache;
 
 import lombok.Getter;
 import lombok.Setter;

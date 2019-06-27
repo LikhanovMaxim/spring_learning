@@ -1,5 +1,7 @@
-package com.example.cache.ehcache;
+package com.example.ehcache;
 
+import com.example.ehcache.model.BookRepository;
+import lombok.val;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +24,18 @@ public class RestEnCache {
 
     @GetMapping("/ehcache/multiply/{number}")
     public String getMultiply(@PathVariable Long number) {
-        logger.info("call numberService to square {}", number);
+        logger.info("call numberService to getMultiply {}", number);
         return String.valueOf(numberService.multiply(number, 2));
     }
 
+    @Autowired
+    private BookRepository bookRepository;
+
+    @GetMapping("/ehcache/object/{number}")
+    public String getBook(@PathVariable Long number) {
+        logger.info("call numberService to getBook {}", number);
+        val book = bookRepository.getByIsbn(String.valueOf(number));
+        return book.getId();
+    }
 
 }
