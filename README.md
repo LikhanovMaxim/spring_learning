@@ -8,7 +8,12 @@ http://localhost:8092/
      - http://localhost:8092/hello?name=User
      - http://localhost:8092/hello
  - Cache
-    - http://localhost:8092/cache?id=10
+    - Deleted: Default Spring Cache
+        - http://localhost:8092/cache?id=10
+        - http://localhost:8092/cache/evict
+    - EhCache
+        - http://localhost:8092/ehcache/11
+        - http://localhost:8092/ehcache/multiply/11
 
 ### Use a docker:
 - Learn

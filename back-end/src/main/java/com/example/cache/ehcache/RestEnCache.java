@@ -19,4 +19,12 @@ public class RestEnCache {
         logger.info("call numberService to square {}", number);
         return String.valueOf(numberService.square(number));
     }
+
+    @GetMapping("/ehcache/multiply/{number}")
+    public String getMultiply(@PathVariable Long number) {
+        logger.info("call numberService to square {}", number);
+        return String.valueOf(numberService.multiply(number, 2));
+    }
+
+
 }
