@@ -5,7 +5,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Log4j2
-public class Utill {
+public class Utility {
+    private Utility() {
+    }
+
     // Don't do this at home
     public static void simulateSlowService(long howMuchWait) {
         log.info("you want to waited for {} ms", howMuchWait);

@@ -1,6 +1,6 @@
 package com.example.ehcache.model1;
 
-import com.example.ehcache.Utill;
+import com.example.ehcache.Utility;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
@@ -21,7 +21,7 @@ public class NumberService {
 
     @Cacheable(value = "squareCache", key = "#number", condition = "#number>10")
     public BigDecimal square(Long number) {
-        Utill.simulateSlowService(2000);
+        Utility.simulateSlowService(2000);
         BigDecimal square = BigDecimal.valueOf(number).multiply(BigDecimal.valueOf(number));
         log.info("square of {} is {}", number, square);
         return square;
@@ -34,7 +34,7 @@ public class NumberService {
 
     @Cacheable(value = "multiply", key = "{#number, #b}")
     public Long multiply(Long number, int b) {
-        Utill.simulateSlowService(2000);
+        Utility.simulateSlowService(2000);
         Long res = number * b;
         log.info("multiply of {} is {}", number, res);
         return res;
@@ -49,7 +49,7 @@ public class NumberService {
     @Cacheable(value = "concat", key = "{#ids.get(0), ids.get(1)}")
 //    public String concat(List<String> strings) {
     public String concat(List<String> ids) {
-        Utill.simulateSlowService(2000);
+        Utility.simulateSlowService(2000);
         Arrays.toString(ids.toArray());
         String res = ids.get(0) + ids.get(1);
         log.info("concat is {}", res);
