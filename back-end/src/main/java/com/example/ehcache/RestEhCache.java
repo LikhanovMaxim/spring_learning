@@ -4,9 +4,8 @@ import com.example.ehcache.model.BookRepository;
 import com.example.ehcache.model1.NumberService;
 import com.example.ehcache.model2.Child1;
 import com.example.ehcache.model2.Child2;
+import lombok.extern.log4j.Log4j2;
 import lombok.val;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,37 +15,36 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
+@Log4j2
 public class RestEhCache {
-    private static final Logger logger = LoggerFactory.getLogger(RestEhCache.class);
-
     @Autowired
     private NumberService numberService;
 
     @GetMapping("/ehcache/{number}")
     public String getSquare(@PathVariable Long number) {
-        logger.info("call numberService to square {}", number);
+        log.info("call numberService to square {}", number);
         return String.valueOf(numberService.square(number));
     }
 
     @GetMapping("/ehcache/evictSquareCache")
     public String evictSquareCache() {
-        logger.info("evictSquareCache numberService to square ");
+        log.info("evictSquareCache numberService to square ");
         numberService.evictSquareCache();
         return "success";
     }
 
     @GetMapping("/ehcache/multiply/{number}")
     public String getMultiply(@PathVariable Long number) {
-        logger.info("call numberService to getMultiply {}", number);
+        log.info("call numberService to getMultiply {}", number);
         return String.valueOf(numberService.multiply(number, 2));
     }
 
     @GetMapping("/ehcache/concat/{str}")
     public String concat(@PathVariable String str) {
-        logger.info("call numberService to concat {}", str);
+        log.info("call numberService to concat {}", str);
         List<String> list = Arrays.asList(str, "lol");
-        logger.info("lol: {}", Arrays.toString(list.toArray())); //[ler, lol]
-        logger.info("second lol: {}", list.toArray()); //[ler, lol]
+        log.info("lol: {}", Arrays.toString(list.toArray())); //[ler, lol]
+        log.info("second lol: {}", list.toArray()); //[ler, lol]
         return String.valueOf(numberService.concat(list));
     }
 
@@ -55,7 +53,7 @@ public class RestEhCache {
 
     @GetMapping("/ehcache/object/{number}")
     public String getBook(@PathVariable Long number) {
-        logger.info("call numberService to getBook {}", number);
+        log.info("call numberService to getBook {}", number);
         val book = bookRepository.getByIsbn(String.valueOf(number));
         return book.getId();
     }
@@ -67,7 +65,7 @@ public class RestEhCache {
 
     @GetMapping("/child1/{str}")
     public String child(@PathVariable String str) {
-        logger.info("child {}", str);
+        log.info("child {}", str);
         return child1.invoke(str);
     }
 }

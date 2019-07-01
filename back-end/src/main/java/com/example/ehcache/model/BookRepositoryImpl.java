@@ -2,15 +2,13 @@ package com.example.ehcache.model;
 
 
 import com.example.ehcache.Utill;
-import com.example.restclient.RestClient;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 @Component
+@Log4j2
 public class BookRepositoryImpl implements BookRepository {
-    private static final Logger logger = LoggerFactory.getLogger(RestClient.class);
     private static final int HOW_MUCH_WAIT = 2000;
 
     @Override

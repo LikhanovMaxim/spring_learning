@@ -1,18 +1,16 @@
 package com.example.restclient;
 
+import lombok.extern.log4j.Log4j2;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
 @Service
+@Log4j2
 public class RestClient {
-    private static final Logger logger = LoggerFactory.getLogger(RestClient.class);
-
     public Response invokeGet(String url) {
         OkHttpClient client = new OkHttpClient();
 
@@ -25,7 +23,7 @@ public class RestClient {
         try {
             response = client.newCall(request).execute();
         } catch (IOException e) {
-            logger.error("Can not execute" + e);
+            log.error("Can not execute" + e);
         }
         return response;
     }

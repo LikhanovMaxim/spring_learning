@@ -1,8 +1,6 @@
 package com.example.schedule;
 
-import com.example.ehcache.RestEhCache;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.time.LocalDateTime;
@@ -12,8 +10,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * https://www.callicoder.com/spring-boot-task-scheduling-with-scheduled-annotation/
  */
+@Log4j2
 public class ExampleSchedule {
-    private static final Logger logger = LoggerFactory.getLogger(RestEhCache.class);
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
     private static final int MILLI_SECONDS = 1000;
     private static final int SECONDS_RATE = 10 * MILLI_SECONDS;
@@ -26,7 +24,7 @@ public class ExampleSchedule {
      */
     @Scheduled(fixedRate = SECONDS_RATE)
     public void scheduleTaskWithFixedRate() {
-        logger.info("Fixed Rate Task :: Execution Time - {}", formatDate());
+        log.info("Fixed Rate Task :: Execution Time - {}", formatDate());
     }
 
     private String formatDate() {
@@ -46,7 +44,7 @@ public class ExampleSchedule {
      */
     @Scheduled(fixedRate = SECONDS_RATE, initialDelay = 5000)
     public void scheduleTaskWithInitialDelay() {
-        logger.info("Fixed Rate Task with Initial Delay :: Execution Time - {}", formatDate());
+        log.info("Fixed Rate Task with Initial Delay :: Execution Time - {}", formatDate());
     }
 
     /**
@@ -55,11 +53,11 @@ public class ExampleSchedule {
      */
     @Scheduled(fixedDelay = SECONDS_DELAY, initialDelay = 10000)
     public void scheduleTaskWithFixedDelay() {
-        logger.info("Fixed Delay Task :: Execution Time - {}", formatDate());
+        log.info("Fixed Delay Task :: Execution Time - {}", formatDate());
         try {
             TimeUnit.SECONDS.sleep(5);
         } catch (InterruptedException ex) {
-            logger.error("Ran into an error {}", ex);
+            log.error("Ran into an error {}", ex);
             throw new IllegalStateException(ex);
         }
     }
@@ -72,6 +70,6 @@ public class ExampleSchedule {
      */
     @Scheduled(cron = "0 * * * * ?")
     public void scheduleTaskWithCronExpression() {
-        logger.info("Cron Task :: Execution Time - {}", formatDate());
+        log.info("Cron Task :: Execution Time - {}", formatDate());
     }
 }

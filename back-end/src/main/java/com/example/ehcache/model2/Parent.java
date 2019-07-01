@@ -1,13 +1,11 @@
 package com.example.ehcache.model2;
 
 import com.example.ehcache.Utill;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.cache.annotation.Cacheable;
 
+@Log4j2
 public abstract class Parent {
-    private static final Logger logger = LoggerFactory.getLogger(Parent.class);
-
     @Cacheable
     protected String invoke(String param) {
         Utill.simulateSlowService(2000);

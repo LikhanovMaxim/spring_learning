@@ -1,7 +1,6 @@
 package com.example.mvc;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
+@Log4j2
 class ControllerFreeMarker {
-    private static final Logger logger = LoggerFactory.getLogger(ControllerFreeMarker.class);
 
     /**
      * User go to http://localhost:8092/hello?name=User
@@ -28,7 +27,7 @@ class ControllerFreeMarker {
     @GetMapping({"/hello"})
     String hello(ModelMap model,
                  @RequestParam(value = "name", required = false, defaultValue = "World") String name) {
-        logger.info("we use MVC");
+        log.info("we use MVC");
         model.addAttribute("name", name);
         return "hello";
     }

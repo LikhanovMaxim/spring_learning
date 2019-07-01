@@ -3,8 +3,7 @@ package com.example.ehcache.model1;
 import com.example.ehcache.Utill;
 import lombok.Getter;
 import lombok.Setter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
@@ -14,9 +13,8 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
+@Log4j2
 public class NumberService {
-    private static final Logger logger = LoggerFactory.getLogger(NumberService.class);
-
     @Getter
     @Setter
     private String field;
@@ -25,7 +23,7 @@ public class NumberService {
     public BigDecimal square(Long number) {
         Utill.simulateSlowService(2000);
         BigDecimal square = BigDecimal.valueOf(number).multiply(BigDecimal.valueOf(number));
-        logger.info("square of {} is {}", number, square);
+        log.info("square of {} is {}", number, square);
         return square;
     }
 
@@ -38,7 +36,7 @@ public class NumberService {
     public Long multiply(Long number, int b) {
         Utill.simulateSlowService(2000);
         Long res = number * b;
-        logger.info("multiply of {} is {}", number, res);
+        log.info("multiply of {} is {}", number, res);
         return res;
     }
 
@@ -54,7 +52,7 @@ public class NumberService {
         Utill.simulateSlowService(2000);
         Arrays.toString(ids.toArray());
         String res = ids.get(0) + ids.get(1);
-        logger.info("concat is {}", res);
+        log.info("concat is {}", res);
         return res;
     }
 
