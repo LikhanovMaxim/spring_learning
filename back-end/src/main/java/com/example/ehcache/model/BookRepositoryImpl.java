@@ -1,6 +1,7 @@
 package com.example.ehcache.model;
 
 
+import com.example.ehcache.Utill;
 import com.example.restclient.RestClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,17 +16,8 @@ public class BookRepositoryImpl implements BookRepository {
     @Override
     @Cacheable("books")
     public Book getByIsbn(String isbn) {
-        simulateSlowService(HOW_MUCH_WAIT);
+        Utill.simulateSlowService(HOW_MUCH_WAIT);
         return new Book(isbn, "Some book");
     }
 
-    // Don't do this at home
-    private void simulateSlowService(long howMuchWait) {
-        logger.info("you want to waited for {} ms", howMuchWait);
-        try {
-            Thread.sleep(howMuchWait);
-        } catch (InterruptedException e) {
-            throw new IllegalStateException(e);
-        }
-    }
 }

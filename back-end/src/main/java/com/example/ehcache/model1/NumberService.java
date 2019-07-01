@@ -1,5 +1,6 @@
-package com.example.ehcache;
+package com.example.ehcache.model1;
 
+import com.example.ehcache.Utill;
 import lombok.Getter;
 import lombok.Setter;
 import org.slf4j.Logger;
@@ -22,7 +23,7 @@ public class NumberService {
 
     @Cacheable(value = "squareCache", key = "#number", condition = "#number>10")
     public BigDecimal square(Long number) {
-        simulateSlowService(2000);
+        Utill.simulateSlowService(2000);
         BigDecimal square = BigDecimal.valueOf(number).multiply(BigDecimal.valueOf(number));
         logger.info("square of {} is {}", number, square);
         return square;
@@ -35,7 +36,7 @@ public class NumberService {
 
     @Cacheable(value = "multiply", key = "{#number, #b}")
     public Long multiply(Long number, int b) {
-        simulateSlowService(2000);
+        Utill.simulateSlowService(2000);
         Long res = number * b;
         logger.info("multiply of {} is {}", number, res);
         return res;
@@ -50,20 +51,11 @@ public class NumberService {
     @Cacheable(value = "concat", key = "{#ids.get(0), ids.get(1)}")
 //    public String concat(List<String> strings) {
     public String concat(List<String> ids) {
-        simulateSlowService(2000);
+        Utill.simulateSlowService(2000);
         Arrays.toString(ids.toArray());
         String res = ids.get(0) + ids.get(1);
         logger.info("concat is {}", res);
         return res;
     }
 
-    // Don't do this at home
-    private void simulateSlowService(long howMuchWait) {
-        logger.info("you want to waited for {} ms", howMuchWait);
-        try {
-            Thread.sleep(howMuchWait);
-        } catch (InterruptedException e) {
-            throw new IllegalStateException(e);
-        }
-    }
 }

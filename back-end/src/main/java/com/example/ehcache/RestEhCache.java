@@ -1,6 +1,9 @@
 package com.example.ehcache;
 
 import com.example.ehcache.model.BookRepository;
+import com.example.ehcache.model1.NumberService;
+import com.example.ehcache.model2.Child1;
+import com.example.ehcache.model2.Child2;
 import lombok.val;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,8 +16,8 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-public class RestEnCache {
-    private static final Logger logger = LoggerFactory.getLogger(RestEnCache.class);
+public class RestEhCache {
+    private static final Logger logger = LoggerFactory.getLogger(RestEhCache.class);
 
     @Autowired
     private NumberService numberService;
@@ -57,4 +60,14 @@ public class RestEnCache {
         return book.getId();
     }
 
+    @Autowired
+    private Child1 child1;
+    @Autowired
+    private Child2 child2;
+
+    @GetMapping("/child1/{str}")
+    public String child(@PathVariable String str) {
+        logger.info("child {}", str);
+        return child1.invoke(str);
+    }
 }
