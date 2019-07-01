@@ -14,13 +14,13 @@ http://localhost:8092/
     - EhCache
         - http://localhost:8092/ehcache/11
         - http://localhost:8092/ehcache/multiply/11
-        - TODO 
+        - TODO add description
  - Properties
     - http://localhost:8092/get/properties/additional
     - http://localhost:8092/get/properties/yml/main
     - TODO add map & object http://localhost:8092/get/properties/additional/yml
  - Schedule
-    - TODO
+    - TODO add description
 ### Use a docker:
 - Learn
     1) First learn it: https://docs.docker.com/get-started/part2/
