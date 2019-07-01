@@ -25,6 +25,13 @@ public class RestEnCache {
         return String.valueOf(numberService.square(number));
     }
 
+    @GetMapping("/ehcache/evictSquareCache")
+    public String evictSquareCache() {
+        logger.info("evictSquareCache numberService to square ");
+        numberService.evictSquareCache();
+        return "success";
+    }
+
     @GetMapping("/ehcache/multiply/{number}")
     public String getMultiply(@PathVariable Long number) {
         logger.info("call numberService to getMultiply {}", number);

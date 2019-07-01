@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
@@ -25,6 +26,11 @@ public class NumberService {
         BigDecimal square = BigDecimal.valueOf(number).multiply(BigDecimal.valueOf(number));
         logger.info("square of {} is {}", number, square);
         return square;
+    }
+
+
+    @CacheEvict(cacheNames = "squareCache", allEntries = true)
+    public void evictSquareCache() {
     }
 
     @Cacheable(value = "multiply", key = "{#number, #b}")
