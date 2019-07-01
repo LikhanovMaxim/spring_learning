@@ -25,3 +25,8 @@ endpoints:
     enabled: true
   shutdown:
     enabled: true
+
+# For test MainConfigYml
+app:
+  name: propertyForTest
+

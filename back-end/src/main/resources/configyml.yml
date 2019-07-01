@@ -1,0 +1,19 @@
+hostname: host@yml.com
+port: 5555
+from: mailer@yml.com
+
+#List properties
+defaultRecipients[0]: admin@yml.com
+defaultRecipients[1]: owner@yml.com
+
+#TODO
+#Map Properties
+additionalHeaders:
+  redelivery: true
+  secure: true
+#TODO
+#Object properties
+credentials:
+  username: ivan
+  password: password
+  authMethod: SHA1
