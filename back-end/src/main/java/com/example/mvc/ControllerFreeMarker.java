@@ -1,5 +1,6 @@
 package com.example.mvc;
 
+import com.example.mvc.error.ServerUnavailableException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -30,6 +31,13 @@ class ControllerFreeMarker {
         log.info("we use MVC");
         model.addAttribute("name", name);
         return "hello";
+    }
+
+    @GetMapping("/simulate/error/server")
+    String simulate(ModelMap modelMap) {
+        if (true)
+            throw new ServerUnavailableException();
+        return "";
     }
 
 }

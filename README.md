@@ -21,6 +21,9 @@ http://localhost:8092/
     - TODO add map & object http://localhost:8092/get/properties/additional/yml
  - Schedule
     - TODO add description
+ - Error page
+    - 503 http://localhost:8092/simulate/error/server
+    - 404 http://localhost:8092/bad/uri
 ### Use a docker:
 - Learn
     1) First learn it: https://docs.docker.com/get-started/part2/
