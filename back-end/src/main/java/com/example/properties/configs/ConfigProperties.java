@@ -23,6 +23,7 @@ public class ConfigProperties {
     private int port;
     private String from;
     private List<String> defaultRecipients;
+    private List<String> stringList;
     private Map<String, String> additionalHeaders;
     private Credentials credentials;
 }

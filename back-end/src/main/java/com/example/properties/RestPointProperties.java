@@ -23,6 +23,8 @@ public class RestPointProperties {
     @GetMapping("/get/properties/additional")
     public String print() {
         log.info(".properties config {}", configurationProperties);
+        log.info(".getStringList config {}", configurationProperties.getStringList());
+        log.info(".getStringList().get(0) config {}", configurationProperties.getStringList().get(0));
         return configurationProperties.toString();
     }
 
