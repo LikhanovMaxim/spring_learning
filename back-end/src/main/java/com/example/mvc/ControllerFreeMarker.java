@@ -1,11 +1,14 @@
 package com.example.mvc;
 
 import com.example.mvc.error.ServerUnavailableException;
+import com.example.mvc.models.DataModel;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -26,11 +29,22 @@ class ControllerFreeMarker {
      * @return name of template
      */
     @GetMapping({"/hello"})
-    String hello(ModelMap model,
-                 @RequestParam(value = "name", required = false, defaultValue = "World") String name) {
+    Object hello(ModelMap model,
+                 @RequestParam(value = "name", required = false, defaultValue = "World") String name,
+                 @RequestParam(value = "page", required = false, defaultValue = "1") Integer page) {
         log.info("we use MVC");
         model.addAttribute("name", name);
         return "hello";
+    }
+
+    @GetMapping(value = "/hello/json",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    DataModel hello2(@RequestParam(value = "name", required = false, defaultValue = "World") String name,
+                     @RequestParam(value = "page", required = false, defaultValue = "1") Integer page
+    ) {
+        log.info("we use MVC json");
+        return new DataModel("asdasdads");
     }
 
     @GetMapping("/simulate/error/server")
