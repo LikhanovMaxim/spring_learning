@@ -3,7 +3,7 @@ package com.example.configuration;
 import lombok.Getter;
 import lombok.Setter;
 
-public class ServiceFirst {
+public class ServiceSecond {
     @Setter
     @Getter
     private Parent parent;

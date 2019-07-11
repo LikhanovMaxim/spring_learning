@@ -3,9 +3,8 @@ package com.example.configuration;
 import lombok.Getter;
 import lombok.Setter;
 
-public class ServiceFirst {
+public class ServiceCommon {
     @Setter
     @Getter
     private Parent parent;
-    //TODO add logic
 }

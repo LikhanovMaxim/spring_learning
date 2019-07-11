@@ -10,7 +10,7 @@ public abstract class Parent {
     @Getter
     private String message;
     public void invoke() {
-        log.info("invoke parent" + message);
+        log.info("invoke parent " + message);
         invokeChild();
     }
 
