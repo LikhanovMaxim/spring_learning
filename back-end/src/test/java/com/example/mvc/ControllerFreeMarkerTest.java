@@ -27,7 +27,7 @@ public class ControllerFreeMarkerTest {
     @Test
     public void should_return_jsp_view() {
         String user = "User123";
-        String view = controller.hello(modelMap, user);
+        String view = (String) controller.hello(modelMap, user, 13);
         assertEquals("hello", view);
         assertEquals(user, modelMap.values().stream().findFirst().get());
     }
