@@ -1,0 +1,85 @@
+<configuration>
+    <property name="LOG_PATH" value="logs"/>
+    <!--        TODO Must change properties: project-name, package -->
+    <Property name="project-name" value="spring-learning"/>
+    <Property name="package" value="com.example"/>
+
+    <property name="timestampFormatJson" value="yyyy-MM-dd' 'HH:mm:ss.SSS"/>
+    <property name="timestampFormatTimezoneId" value="Europe/Moscow"/>
+    <property name="patterEncoder" value="Europe/Moscow"/>
+
+    <!--    Usual Appender for console -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--    Json Appender for console -->
+    <appender name="consoleJson" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
+            <jsonFormatter
+                    class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
+                <prettyPrint>true</prettyPrint>
+            </jsonFormatter>
+            <timestampFormat>${timestampFormatJson}</timestampFormat>
+            <timestampFormatTimezoneId>${timestampFormatTimezoneId}</timestampFormatTimezoneId>
+        </layout>
+    </appender>
+
+    <!--    Usual appender for rolling to files -->
+    <appender name="RollingFile"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${project-name}-console.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>
+                %d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n
+            </Pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <maxFileSize>200MB</maxFileSize>
+            <fileNamePattern>
+                ${LOG_PATH}/archived-console/${project-name}_%d{dd-MM-yyyy}_%i.log
+            </fileNamePattern>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!--    Json appender for rolling to files -->
+    <appender name="RollingFileJson"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${project-name}.log</file>
+        <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
+            <jsonFormatter
+                    class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
+                <prettyPrint>true</prettyPrint>
+            </jsonFormatter>
+            <timestampFormat>${timestampFormatJson}</timestampFormat>
+            <timestampFormatTimezoneId>${timestampFormatTimezoneId}</timestampFormatTimezoneId>
+        </layout>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <maxFileSize>200MB</maxFileSize>
+            <fileNamePattern>
+                ${LOG_PATH}/archived/${project-name}_%d{dd-MM-yyyy}_%i.log
+            </fileNamePattern>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="console"/>
+        <appender-ref ref="RollingFile"/>
+        <!--        JSON format, for example, for Kibana -->
+        <!--        <appender-ref ref="consoleJson"/>-->
+        <!--        <appender-ref ref="RollingFileJson"/>-->
+    </root>
+
+    <!--    TODO change level of logging here: -->
+    <Logger name="${package}" level="debug"/>
+
+</configuration>

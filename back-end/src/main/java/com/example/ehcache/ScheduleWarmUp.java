@@ -1,13 +1,13 @@
 package com.example.ehcache;
 
 import com.example.ehcache.model1.NumberService;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
-@Log4j2
+@Slf4j
 public class ScheduleWarmUp {
     private static final int MILLI_SECONDS = 1000;
     private static final int SECONDS = 60;

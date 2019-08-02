@@ -3,13 +3,13 @@ package com.example.properties;
 import com.example.properties.configs.ConfigProperties;
 import com.example.properties.configs.ConfigPropertiesYml;
 import com.example.properties.configs.MainConfigYml;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@Log4j2
+@Slf4j
 public class RestPointProperties {
     @Autowired
     private ConfigProperties configurationProperties;

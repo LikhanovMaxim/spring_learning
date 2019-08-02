@@ -2,12 +2,12 @@ package com.example.ehcache.model;
 
 
 import com.example.ehcache.Utility;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 @Component
-@Log4j2
+@Slf4j
 public class BookRepositoryImpl implements BookRepository {
     private static final int HOW_MUCH_WAIT = 2000;
 

@@ -1,10 +1,10 @@
 package com.example.ehcache.model2;
 
 import com.example.ehcache.Utility;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
 
-@Log4j2
+@Slf4j
 public abstract class Parent {
     @Cacheable
     protected String invoke(String param) {

@@ -4,7 +4,7 @@ import com.example.ehcache.model.BookRepository;
 import com.example.ehcache.model1.NumberService;
 import com.example.ehcache.model2.Child1;
 import com.example.ehcache.model2.Child2;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@Log4j2
+@Slf4j
 public class RestEhCache {
     @Autowired
     private NumberService numberService;

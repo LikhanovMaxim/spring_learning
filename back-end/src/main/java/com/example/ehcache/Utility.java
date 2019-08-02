@@ -1,10 +1,10 @@
 package com.example.ehcache;
 
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
-@Log4j2
+@Slf4j
 public class Utility {
     private Utility() {
     }

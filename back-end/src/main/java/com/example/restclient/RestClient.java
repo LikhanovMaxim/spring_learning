@@ -1,6 +1,6 @@
 package com.example.restclient;
 
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 
 @Service
-@Log4j2
+@Slf4j
 public class RestClient {
     public Response invokeGet(String url) {
         OkHttpClient client = new OkHttpClient();

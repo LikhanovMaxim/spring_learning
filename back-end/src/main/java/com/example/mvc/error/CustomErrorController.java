@@ -1,6 +1,6 @@
 package com.example.mvc.error;
 
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,7 +10,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-@Log4j2
+@Slf4j
 public class CustomErrorController implements ErrorController {
 
     private static final String ERROR_TEMPLATE = "error/errorPage";

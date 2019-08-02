@@ -1,6 +1,6 @@
 package com.example.schedule;
 
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.time.LocalDateTime;
@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * https://www.callicoder.com/spring-boot-task-scheduling-with-scheduled-annotation/
  */
-@Log4j2
+@Slf4j
 public class ExampleSchedule {
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
     private static final int MILLI_SECONDS = 1000;
