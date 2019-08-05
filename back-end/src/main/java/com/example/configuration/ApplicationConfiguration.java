@@ -1,10 +1,10 @@
-package com.example;
+package com.example.configuration;
 
-import com.example.configuration.ChildFirst;
-import com.example.configuration.ChildSecond;
-import com.example.configuration.ServiceCommon;
-import com.example.configuration.ServiceFirst;
-import com.example.configuration.ServiceSecond;
+import com.example.configuration.abstraction.ChildFirst;
+import com.example.configuration.abstraction.ChildSecond;
+import com.example.configuration.abstraction.ServiceCommon;
+import com.example.configuration.abstraction.ServiceFirst;
+import com.example.configuration.abstraction.ServiceSecond;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

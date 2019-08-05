@@ -1,5 +1,8 @@
 package com.example.configuration;
 
+import com.example.configuration.abstraction.ServiceCommon;
+import com.example.configuration.abstraction.ServiceFirst;
+import com.example.configuration.abstraction.ServiceSecond;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.example.configuration;
+package com.example.configuration.abstraction;
 
 import lombok.Getter;
 import lombok.Setter;

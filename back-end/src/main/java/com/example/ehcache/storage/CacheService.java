@@ -2,14 +2,12 @@ package com.example.ehcache.storage;
 
 import com.example.ehcache.Utility;
 import com.example.ehcache.storage.model.Book;
-import com.example.ehcache.storage.model.BookStorage;
 import com.example.ehcache.storage.model.DataSmth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service

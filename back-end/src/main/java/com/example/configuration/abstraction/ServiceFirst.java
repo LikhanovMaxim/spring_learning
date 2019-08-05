@@ -1,10 +1,11 @@
-package com.example.configuration;
+package com.example.configuration.abstraction;
 
 import lombok.Getter;
 import lombok.Setter;
 
-public class ServiceCommon {
+public class ServiceFirst {
     @Setter
     @Getter
     private Parent parent;
+    //TODO add logic
 }

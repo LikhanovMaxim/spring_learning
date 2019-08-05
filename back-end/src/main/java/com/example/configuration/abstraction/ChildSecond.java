@@ -1,4 +1,4 @@
-package com.example.configuration;
+package com.example.configuration.abstraction;
 
 import lombok.extern.slf4j.Slf4j;
 
