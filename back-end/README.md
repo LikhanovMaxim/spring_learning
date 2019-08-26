@@ -1,3 +1,7 @@
+## Materials
+- https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-spring-mvc-template-engines
+- https://javarevisited.blogspot.com/2017/08/difference-between-restcontroller-and-controller-annotations-spring-mvc-rest.html
+- https://spring.io/guides/topicals/spring-boot-docker/
 ## Spring Boot
 Link:
 http://localhost:8092/
