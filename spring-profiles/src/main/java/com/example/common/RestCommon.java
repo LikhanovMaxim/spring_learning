@@ -1,4 +1,4 @@
-package com.example.cache.common;
+package com.example.common;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
