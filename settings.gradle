@@ -1,4 +1,4 @@
 rootProject.name = 'spring'
 include 'back-end'
-include 'profiles'
+include 'spring-profiles'
 
