@@ -1,7 +1,7 @@
-package com.example.ehcache.examples.example3;
+package com.example.ehcache.examples.example3_abstract;
 
-import com.example.ehcache.examples.example3.model.Child1;
-import com.example.ehcache.examples.example3.model.Child2;
+import com.example.ehcache.examples.example3_abstract.model.Child1;
+import com.example.ehcache.examples.example3_abstract.model.Child2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

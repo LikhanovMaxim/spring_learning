@@ -1,6 +1,6 @@
-package com.example.ehcache.examples.example2;
+package com.example.ehcache.examples.example2_valueIsObject;
 
-import com.example.ehcache.examples.example2.model.BookRepository;
+import com.example.ehcache.examples.example2_valueIsObject.model.BookRepository;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;

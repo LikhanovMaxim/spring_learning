@@ -1,4 +1,4 @@
-package com.example.ehcache.examples.example3.model;
+package com.example.ehcache.examples.example3_abstract.model;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;

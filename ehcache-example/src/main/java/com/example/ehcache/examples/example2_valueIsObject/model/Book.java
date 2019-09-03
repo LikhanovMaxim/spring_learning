@@ -1,4 +1,4 @@
-package com.example.ehcache.examples.example2.model;
+package com.example.ehcache.examples.example2_valueIsObject.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
