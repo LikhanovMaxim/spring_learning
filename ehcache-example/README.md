@@ -1,5 +1,5 @@
 ## Materials
-- TODO add links
+- Example: https://spring.io/guides/gs/caching/
 ## Ehcache
 Link:
 - Main spring boot app: http://localhost:8093/

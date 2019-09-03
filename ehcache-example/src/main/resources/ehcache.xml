@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="http://www.ehcache.org/ehcache.xsd">
+    <!--       first example-->
     <cache name="squareCache"
            maxElementsInMemory="100"
            overflowToDisk="false"
            timeToLiveSeconds="60"
            timeToIdleSeconds="0"
            memoryStoreEvictionPolicy="LFU">
-       <cacheEventListenerFactory class="com.example.ehcache.log.CacheFactory"/>
+        <cacheEventListenerFactory class="com.example.ehcache.common.log.CacheFactory"/>
     </cache>
     <cache name="multiply"
            maxElementsInMemory="100"
@@ -15,7 +16,7 @@
            timeToLiveSeconds="60"
            timeToIdleSeconds="0"
            memoryStoreEvictionPolicy="LFU">
-       <cacheEventListenerFactory class="com.example.ehcache.log.CacheFactory"/>
+        <cacheEventListenerFactory class="com.example.ehcache.common.log.CacheFactory"/>
     </cache>
     <cache name="books"
            maxElementsInMemory="100"
@@ -23,7 +24,7 @@
            timeToLiveSeconds="60"
            timeToIdleSeconds="0"
            memoryStoreEvictionPolicy="LFU">
-       <cacheEventListenerFactory class="com.example.ehcache.log.CacheFactory"/>
+        <cacheEventListenerFactory class="com.example.ehcache.common.log.CacheFactory"/>
     </cache>
     <cache name="concat"
            maxElementsInMemory="100"
@@ -31,7 +32,7 @@
            timeToLiveSeconds="60"
            timeToIdleSeconds="0"
            memoryStoreEvictionPolicy="LFU">
-       <cacheEventListenerFactory class="com.example.ehcache.log.CacheFactory"/>
+        <cacheEventListenerFactory class="com.example.ehcache.common.log.CacheFactory"/>
     </cache>
     <cache name="child1"
            maxElementsInMemory="100"
@@ -39,7 +40,15 @@
            timeToLiveSeconds="60"
            timeToIdleSeconds="0"
            memoryStoreEvictionPolicy="LFU">
-       <cacheEventListenerFactory class="com.example.ehcache.log.CacheFactory"/>
+        <cacheEventListenerFactory class="com.example.ehcache.common.log.CacheFactory"/>
+    </cache>
+    <cache name="parent"
+           maxElementsInMemory="100"
+           overflowToDisk="false"
+           timeToLiveSeconds="60"
+           timeToIdleSeconds="0"
+           memoryStoreEvictionPolicy="LFU">
+        <cacheEventListenerFactory class="com.example.ehcache.common.log.CacheFactory"/>
     </cache>
     <cache name="storage"
            maxElementsInMemory="100"
@@ -47,7 +56,14 @@
            timeToLiveSeconds="60"
            timeToIdleSeconds="0"
            memoryStoreEvictionPolicy="LFU">
-       <cacheEventListenerFactory class="com.example.ehcache.log.CacheFactory"/>
+        <cacheEventListenerFactory class="com.example.ehcache.common.log.CacheFactory"/>
     </cache>
-
+    <cache name="requestParam"
+           maxElementsInMemory="100"
+           overflowToDisk="false"
+           timeToLiveSeconds="60"
+           timeToIdleSeconds="0"
+           memoryStoreEvictionPolicy="LFU">
+        <cacheEventListenerFactory class="com.example.ehcache.common.log.CacheFactory"/>
+    </cache>
 </ehcache>
