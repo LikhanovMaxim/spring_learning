@@ -1,8 +1,5 @@
-package com.example.ehcache.storage;
+package com.example.ehcache.examples.storage;
 
-import com.example.ehcache.storage.model.Book;
-import com.example.ehcache.storage.model.BookStorage;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.example.ehcache.model;
+package com.example.ehcache.examples.model;
 
 
 import com.example.ehcache.Utility;

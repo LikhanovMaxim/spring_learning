@@ -1,4 +1,4 @@
-package com.example.ehcache.storage.model;
+package com.example.ehcache.examples.storage.model;
 
 import lombok.Data;
 

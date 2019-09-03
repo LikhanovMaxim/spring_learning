@@ -1,4 +1,4 @@
-package com.example.ehcache.storage.model;
+package com.example.ehcache.examples.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,9 +8,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 public class Book implements Serializable {
-    private int id;
-    private String name;
-
-    public Book() {
-    }
+    private static final long serialVersionUID = 1905122041950251207L;
+    String id;
+    String name;
 }

@@ -1,4 +1,4 @@
-package com.example.ehcache.model1;
+package com.example.ehcache.examples.model1;
 
 import com.example.ehcache.Utility;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.example.ehcache.model2;
+package com.example.ehcache.examples.model2;
 
 import org.springframework.stereotype.Component;
 

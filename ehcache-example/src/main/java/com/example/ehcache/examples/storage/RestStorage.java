@@ -1,6 +1,6 @@
-package com.example.ehcache.storage;
+package com.example.ehcache.examples.storage;
 
-import com.example.ehcache.storage.model.Book;
+import com.example.ehcache.examples.storage.model.Book;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

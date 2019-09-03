@@ -1,9 +1,9 @@
 package com.example.ehcache;
 
-import com.example.ehcache.model.BookRepository;
-import com.example.ehcache.model1.NumberService;
-import com.example.ehcache.model2.Child1;
-import com.example.ehcache.model2.Child2;
+import com.example.ehcache.examples.model.BookRepository;
+import com.example.ehcache.examples.model1.NumberService;
+import com.example.ehcache.examples.model2.Child1;
+import com.example.ehcache.examples.model2.Child2;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;

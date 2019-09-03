@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class Rest {
 
     @GetMapping("/")
-    public String check(){
+    public String check() {
         log.info("check");
-        return "ok";
+        return "It is example of using ehcache";
     }
+
 }
