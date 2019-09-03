@@ -1,4 +1,6 @@
 rootProject.name = 'spring'
 include 'back-end'
 include 'spring-profiles'
+include 'ehcache-example'
+include 'spring-boot-ehcache-monitor'
 

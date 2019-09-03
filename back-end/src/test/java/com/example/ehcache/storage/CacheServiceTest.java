@@ -17,17 +17,17 @@ public class CacheServiceTest {
     @Autowired
     private CacheService cacheService;
 
-    @Test
-    public void name() {
-        BookStorage bookStorage = cacheService.getBook2(1);
-        assertEquals(new BookStorage(), bookStorage);
-    }
-
-    @Test
-    public void name2() {
-        Book book = new Book(23, "lol");
-        cacheService.updateBook2(1, book);
-        BookStorage bookStorage = cacheService.getBook2(1);
-        assertEquals(book, bookStorage.getBook().get(0));
-    }
+//    @Test
+//    public void name() {
+//        BookStorage bookStorage = cacheService.getBook2(1);
+//        assertEquals(new BookStorage(), bookStorage);
+//    }
+//
+//    @Test
+//    public void name2() {
+//        Book book = new Book(23, "lol");
+//        cacheService.updateBook2(1, book);
+//        BookStorage bookStorage = cacheService.getBook2(1);
+//        assertEquals(book, bookStorage.getBook().get(0));
+//    }
 }
