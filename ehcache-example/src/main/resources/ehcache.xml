@@ -5,7 +5,7 @@
     <cache name="squareCache"
            maxElementsInMemory="100"
            overflowToDisk="false"
-           timeToLiveSeconds="60"
+           timeToLiveSeconds="10"
            timeToIdleSeconds="0"
            memoryStoreEvictionPolicy="LFU">
         <cacheEventListenerFactory class="com.example.ehcache.common.log.CacheFactory"/>
@@ -18,10 +18,11 @@
            memoryStoreEvictionPolicy="LFU">
         <cacheEventListenerFactory class="com.example.ehcache.common.log.CacheFactory"/>
     </cache>
+<!--    TimeToLiveSeconds 1 hour -->
     <cache name="books"
            maxElementsInMemory="100"
            overflowToDisk="false"
-           timeToLiveSeconds="60"
+           timeToLiveSeconds="3600"
            timeToIdleSeconds="0"
            memoryStoreEvictionPolicy="LFU">
         <cacheEventListenerFactory class="com.example.ehcache.common.log.CacheFactory"/>
