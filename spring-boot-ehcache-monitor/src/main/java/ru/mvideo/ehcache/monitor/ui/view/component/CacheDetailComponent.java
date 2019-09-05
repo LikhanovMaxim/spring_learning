@@ -110,7 +110,11 @@ public class CacheDetailComponent extends CustomComponent implements View {
     private Grid<Cache> createCacheInfoGrid() {
         Grid<Cache> grid = new Grid<>();
         grid.addColumn(Cache::getName).setCaption("Name");
-        grid.addColumn(cache -> ((Double) (((double) cache.getStatistics().cacheHitCount()) / ((double) (cache.getStatistics().cacheMissCount() + cache.getStatistics().cacheHitCount())) * 100)).intValue() + "%").setCaption("Hit Ratio");
+        grid.addColumn(cache -> (
+                (Double)
+                        (((double) cache.getStatistics().cacheHitCount()) / ((double) (cache.getStatistics().cacheMissCount() + cache.getStatistics().cacheHitCount())) * 100))
+                .intValue() + "%")
+                .setCaption("Hit Ratio");
         grid.addColumn(cache -> cache.getCacheConfiguration().getMaxEntriesLocalHeap()).setCaption("Max Size");
         grid.addColumn(Cache::getSize).setCaption("Size");
         grid.addColumn(Cache::getStatus).setCaption("Status");
