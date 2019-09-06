@@ -1,3 +1,6 @@
+## Desc
+- This repository for learning Spring
+
 ## Branches
 - master is a main branch
 - dev is a branch for developing  
