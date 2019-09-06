@@ -6,9 +6,6 @@ server:
 spring:
   freemarker:
     suffix: .ftl
-  cache:
-    jcache:
-      config: classpath:ehcache.xml
 
   #For docker
   #  TODO add description
