@@ -79,31 +79,37 @@ def CACHE = '1.1.0'
 def EHCACHE = '3.6.2'
 //What we use in our project:
 dependencies {
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: SPRING_BOOT_VERSION
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version: FREE_MARKER_STARTER_VERSION
-    compile group: 'org.freemarker', name: 'freemarker', version: FREE_MARKER_VERSION
+    implementation  group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: SPRING_BOOT_VERSION
+    implementation  group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version: FREE_MARKER_STARTER_VERSION
+    implementation  group: 'org.freemarker', name: 'freemarker', version: FREE_MARKER_VERSION
     //For cache:
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-cache', version: CACHE_STARTER
+    implementation  group: 'org.springframework.boot', name: 'spring-boot-starter-cache', version: CACHE_STARTER
 
 //    Logging:
-    compile group: 'ch.qos.logback.contrib', name: 'logback-json-classic', version: LOGBACK_VERSION
-    compile group: 'ch.qos.logback.contrib', name: 'logback-jackson', version: LOGBACK_VERSION
-    compile group: 'javax.cache', name: 'cache-api', version: CACHE
-    compile group: 'org.ehcache', name: 'ehcache', version: EHCACHE
+    implementation  group: 'ch.qos.logback.contrib', name: 'logback-json-classic', version: LOGBACK_VERSION
+    implementation  group: 'ch.qos.logback.contrib', name: 'logback-jackson', version: LOGBACK_VERSION
+    implementation  group: 'javax.cache', name: 'cache-api', version: CACHE
+    implementation  group: 'org.ehcache', name: 'ehcache', version: EHCACHE
 //    TODO providedCompile vs compile vs compileOnly 
     compileOnly group: 'org.projectlombok', name: 'lombok', version: LOMBOK_VERSION
 //    TODO annotationProcessor
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: LOMBOK_VERSION
 
-    compile group: 'com.squareup.okhttp3', name: 'okhttp', version: OKHTTP3_VERSION
+    implementation  group: 'com.squareup.okhttp3', name: 'okhttp', version: OKHTTP3_VERSION
 //    testCompile for test module
-    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: JUNIT_VERSION
-    testCompile group: 'org.mockito', name: 'mockito-core', version: MOCKITO_VERSION
-    testCompile group: 'org.springframework', name: 'spring-test', version: SPRING_VERSION
-    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: SPRING_BOOT_VERSION
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: JUNIT_VERSION
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: MOCKITO_VERSION
+    testImplementation group: 'org.springframework', name: 'spring-test', version: SPRING_VERSION
+//    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: SPRING_BOOT_VERSION
+//    TODO How to add version at testImplementation?
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
 }
 
-
+test {
+    useJUnitPlatform()
+}
 //bootRun {
 //    systemProperty "spring.profiles.active", "simple-cache"
 //}
