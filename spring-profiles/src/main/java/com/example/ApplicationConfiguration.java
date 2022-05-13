@@ -14,6 +14,7 @@ public class ApplicationConfiguration {
         return new Service("dev");
     }
 
+    @Bean
     @Profile("prod")
     public Service serviceProd(){
         return new Service("prod");
